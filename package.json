@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "Examples to determine browser support in BrowserStack Live etc.",
   "scripts": {
-    "start": "http-server ."
+    "start": "http-server .",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Claas Augner <caugner@mozilla.com>",
   "license": "CC0-1.0",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
   }
 }
