@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      div {
+        display: inline-block;
+        background-color: #ffee99;
+        background-image: url("star-transparent.gif"), url("cat-front.png");
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100px;
+        margin: 10px 0 0 10px;
+      }
+
+      .bottom {
+        background-position: bottom;
+      }
+      .center {
+        background-position: center;
+      }
+      .left {
+        background-position: left;
+      }
+      .right {
+        background-position: right;
+      }
+      .top {
+        background-position: top;
+      }
+      .multiple {
+        background-position:
+          bottom left,
+          top right;
+      }
+      .side-relative {
+        background-position: bottom 10% right 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bottom">bottom</div>
+    <div class="center">center</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="top">top</div>
+    <div class="multiple">multiple</div>
+    <div class="side-relative">side-relative</div>
+  </body>
+</html>
