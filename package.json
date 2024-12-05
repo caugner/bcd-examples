@@ -1,0 +1,14 @@
+{
+  "name": "bcd-examples",
+  "version": "1.0.0",
+  "description": "Examples to determine browser support in BrowserStack Live etc.",
+  "scripts": {
+    "start": "http-server ."
+  },
+  "keywords": [],
+  "author": "Claas Augner <caugner@mozilla.com>",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
