@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      div {
+        border: 20px solid;
+        border-image: url("border.png") 30 round;
+        -moz-border-image: url("border.png") 30 round;
+        padding: 0.5rem;
+        display: inline-block;
+        text-align: center;
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+
+      .unset {
+        border-image-width: unset;
+      }
+      .auto {
+        border-image-width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>border-image-width</code></h2>
+    <div class="unset">unset</div>
+    <div class="auto">auto</div>
+</body></html>
