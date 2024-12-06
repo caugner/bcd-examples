@@ -1,0 +1,125 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      p {
+        background-color: #ffee99;
+        display: inline-block;
+      }
+
+      .wrap-box {
+        width: 10em;
+        margin: 0.5em;
+        white-space: normal;
+        vertical-align: top;
+        display: inline-block;
+      }
+
+      .break .auto {
+        line-break: auto;
+      }
+      .break .loose {
+        line-break: loose;
+      }
+      .break .normal {
+        line-break: normal;
+      }
+      .break .strict {
+        line-break: strict;
+      }
+      .break .anywhere {
+        line-break: anywhere;
+      }
+      
+      .break .ms-auto {
+        -ms-line-break: auto;
+      }
+      .break .ms-loose {
+        -ms-line-break: loose;
+      }
+      .break .ms-normal {
+        -ms-line-break: normal;
+      }
+      .break .ms-strict {
+        -ms-line-break: strict;
+      }
+      .break .ms-anywhere {
+        -ms-line-break: anywhere;
+      }
+      
+      .break .webkit-auto {
+        -webkit-line-break: auto;
+      }
+      .break .webkit-loose {
+        -webkit-line-break: loose;
+      }
+      .break .webkit-normal {
+        -webkit-line-break: normal;
+      }
+      .break .webkit-strict {
+        -webkit-line-break: strict;
+      }
+      .break .webkit-anywhere {
+        -webkit-line-break: anywhere;
+      }
+    </style>
+    <script>
+      window.setInterval(function() {
+        document.body.className = document.body.className == 'break' ? '' : 'break';
+      }, 1000);
+    </script>
+  </head>
+  <body class="break">
+    <p class="wrap-box">
+      (unset):<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <h2><code>line-break</code></h2>
+    <p class="wrap-box auto">
+      auto:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box loose">
+      loose:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box normal">
+      normal:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box strict">
+      strict:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box anywhere">
+      anywhere:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <h2><code>-ms-line-break</code></h2>
+    <p class="wrap-box ms-auto">
+      auto:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box ms-loose">
+      loose:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box ms-normal">
+      normal:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box ms-strict">
+      strict:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box ms-anywhere">
+      anywhere:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <h2><code>-webkit-line-break</code></h2>
+    <p class="wrap-box webkit-auto">
+      auto:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box webkit-loose">
+      loose:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box webkit-normal">
+      normal:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box webkit-strict">
+      strict:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+    <p class="wrap-box webkit-anywhere">
+      anywhere:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
+    </p>
+  </body>
+</html>
