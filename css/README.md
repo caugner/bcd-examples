@@ -7,3 +7,7 @@
 - [`line-break`](./line-break/)
 - [`text-decoration-line`](./text-decoration-line/)
 - [`transform`](./transform/)
+
+## Tools
+
+- [Computed Properties](./tools/computed-properties/)
