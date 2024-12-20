@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      div {
+        border: 20px solid;
+        border-image: url("border.png") 30 round;
+        -moz-border-image: url("border.png") 30 round;
+        padding: 0.5rem;
+        display: inline-block;
+        text-align: center;
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+
+      .auto {
+        alignment-baseline: auto;
+      }
+      .baseline {
+        alignment-baseline: baseline;
+      }
+      .before-edge {
+        alignment-baseline: before-edge;
+      }
+      .text-before-edge {
+        alignment-baseline: text-before-edge;
+      }
+      .middle {
+        alignment-baseline: middle;
+      }
+      .central {
+        alignment-baseline: central;
+      }
+      .after-edge {
+        alignment-baseline: after-edge;
+      }
+      .text-after-edge {
+        alignment-baseline: text-after-edge;
+      }
+      .ideographic {
+        alignment-baseline: ideographic;
+      }
+      .alphabetic {
+        alignment-baseline: alphabetic;
+      }
+      .hanging {
+        alignment-baseline: hanging;
+      }
+      .mathematical {
+        alignment-baseline: mathematical;
+      }
+      .top {
+        alignment-baseline: top;
+      }
+      .center {
+        alignment-baseline: center;
+      }
+      .bottom {
+        alignment-baseline: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>alignment-baseline</code></h2>
+    <svg width="100%" height="100px" style="outline: 1px solid red; font-size: 1.25em; overflow: visible;">
+      <text x="0" y="0">
+        <tspan class="auto" alignment-baseline="auto">auto</tspan>
+        <tspan class="baseline" alignment-baseline="baseline">baseline</tspan>
+        <tspan class="before-edge" alignment-baseline="before-edge">before-edge</tspan>
+        <tspan class="text-before-edge" alignment-baseline="text-before-edge">text-before-edge</tspan>
+        <tspan class="middle" alignment-baseline="middle">middle</tspan>
+        <tspan class="central" alignment-baseline="central">central</tspan>
+        <tspan class="after-edge" alignment-baseline="after-edge">after-edge</tspan>
+        <tspan class="text-after-edge" alignment-baseline="text-after-edge">text-after-edge</tspan>
+        <tspan class="ideographic" alignment-baseline="ideographic">ideographic</tspan>
+        <tspan class="alphabetic" alignment-baseline="alphabetic">alphabetic</tspan>
+        <tspan class="hanging" alignment-baseline="hanging">hanging</tspan>
+        <tspan class="mathematical" alignment-baseline="mathematical">mathematical</tspan>
+        <tspan class="top" alignment-baseline="top">top</tspan>
+        <tspan class="center" alignment-baseline="center">center</tspan>
+        <tspan class="bottom" alignment-baseline="bottom">bottom</tspan>
+      </text>
+      </svg>
+</body></html>
