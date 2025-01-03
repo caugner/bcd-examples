@@ -17,20 +17,32 @@
 <pre id="output"></pre>
 <script>
     (function() {
-        var styleElement = document.getElementById('output');
-        var outputElement = document.getElementById('output');
-        var style = window.getComputedStyle(styleElement, null);
-
         var lines = [];
+        var error;
 
-        for (var i = 0; i < style.length; i++) {
-            var propertyName = style.item(i);
-            lines.push(propertyName + ": " + style.getPropertyValue(propertyName) + ";");
+        try {
+            var styleElement = document.getElementById('output');
+            var outputElement = document.getElementById('output');
+            var style = window.getComputedStyle(styleElement);
+
+
+            for (var i = 0; i < style.length; i++) {
+                var propertyName = style.item(i);
+                lines.push(propertyName + ": " + style.getPropertyValue(propertyName) + ";");
+            }
+
+            lines.sort();
+        } catch (e) {
+            error = e;
         }
 
-        lines.sort();
+        outputElement.innerHTML = '';
+        var textNode = document.createTextNode('# ' + window.navigator.userAgent + "\n\n" + lines.join("\n"))
+        outputElement.appendChild(textNode);
 
-        outputElement.textContent = '# ' + window.navigator.userAgent + "\n\n" + lines.join("\n");
+        if (error) {
+            alert("Error: " + error);
+        }
     })();
 </script>
 </body>
