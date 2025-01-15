@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      div {
+        background-color: #ffee99;
+        display: inline-block;
+        margin: 1rem 0 0 1rem;
+        padding: 0.5rem;
+        text-align: center;
+      }
+
+      .example {
+        width: 200px;
+        height: 200px;
+        mask-repeat: no-repeat;
+        mask-size: 100%;
+
+        background: red;
+      }
+
+      .basic {
+        mask-image: url(basic.svg);
+      }
+      .mask {
+        mask-image: url(with-mask.svg#mask);
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>SVG</code></h2>
+    <div class="example basic"></div>
+    <hr />
+    <h2><code>SVG#ref</code></h2>
+    <div class="example mask"></div>
+  </body>
+</html>
