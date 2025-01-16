@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test: break-before: avoid-page</title>
+  <style>
+    @media print {
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page {
+        /*page-break-after: always;*/
+      }
+
+      .avoid-break {
+        break-before: avoid-page;
+        padding: 10px;
+        background-color: #f0f0f0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p>Page 1: This is content for the first page.</p>
+    <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Conubia morbi finibus mi turpis dui. Mattis congue rutrum litora consequat porta scelerisque. Laoreet suscipit a non; suscipit ac tellus in feugiat. Hendrerit enim himenaeos hac himenaeos fusce ante pulvinar. Feugiat quis senectus litora ipsum augue rutrum est. Amet sapien scelerisque suspendisse ornare accumsan class ex arcu. Sed molestie est mauris varius phasellus placerat in. Placerat litora turpis mauris sociosqu tellus varius in elit neque. Viverra finibus suscipit tempus dapibus tempus; phasellus sociosqu efficitur lacinia?
+      <p>Aptent sapien facilisis augue ac habitant maximus. Ullamcorper parturient nunc leo vulputate diam elit porttitor. Non lacus eget iaculis; hendrerit lectus odio dis netus. Iaculis tempor bibendum malesuada parturient molestie ullamcorper. Ut himenaeos turpis molestie enim porta nec taciti. Auctor id molestie penatibus tortor nisl rutrum neque. Feugiat interdum sociosqu fames sodales inceptos penatibus adipiscing sed turpis. Class primis primis a, massa gravida vitae rutrum elementum.</p>
+      <p>Velit netus sodales cubilia magnis sed tortor. Curae non dictum hac dictum tempus consectetur. Hac donec dolor maximus facilisi, amet natoque. Nisl eleifend fusce id, cursus bibendum dis. Aliquam at aenean etiam fusce natoque lacinia senectus. Ultricies facilisis commodo morbi venenatis tortor interdum. Mattis ante consectetur; pharetra augue potenti placerat. Tellus eros commodo leo per enim accumsan. Nisi taciti convallis morbi, est amet pretium. Pulvinar ac consequat facilisis gravida fames est, mi arcu.</p>
+      <p>Efficitur interdum netus luctus tincidunt aenean cubilia primis libero. Erat ante a duis diam consequat turpis hac. Varius at felis, mattis ultrices augue conubia ridiculus venenatis. Leo ligula nam ligula vulputate ac cubilia. Consequat odio dui montes, id montes potenti dictum. Sollicitudin nascetur rutrum quam, laoreet erat ex facilisis vestibulum. Facilisis luctus eget orci vivamus fermentum pretium neque.</p>
+      <p>Natoque cubilia elit per fringilla elementum magnis. Pulvinar dignissim suscipit finibus suscipit turpis non. Eros consequat donec accumsan maximus molestie magna. Taciti quam sit egestas finibus; rutrum finibus sodales. Arcu purus consectetur; ullamcorper sagittis porttitor imperdiet. Pretium elementum mauris dui lorem a adipiscing tristique netus. Dui hendrerit aliquam, quis magnis imperdiet cursus dolor elementum auctor. Accumsan tempus lobortis pretium nulla ante aliquam penatibus.</p>
+      <p>Per fringilla magnis lectus ultrices varius mattis vitae. Metus condimentum iaculis curabitur diam; ex sagittis duis. Tellus nunc vehicula blandit; pharetra congue pulvinar nec. Nullam gravida dignissim malesuada primis aliquet fermentum. Suspendisse pretium nunc mattis venenatis, massa gravida enim. Conubia semper fames varius magnis facilisi. Sagittis taciti hendrerit venenatis, elementum sociosqu vulputate pretium. Consequat nullam tellus sociosqu sed vel velit facilisi sodales. Interdum lectus metus lectus nunc est id.</p>
+    <p>It ends with a page break.</p>
+  </div>
+
+  <div class="avoid-break">
+    <p>Page 2: This content should not start with a page break.</p>
+    <p>The `break-before: avoid-page;` property ensures this content follows the previous content without breaking the page.</p>
+  </div>
+</body>
+</html>
+
