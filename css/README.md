@@ -6,6 +6,7 @@
 - [`cursor`](./cursor/)
 - [`font-variant`](./font-variant/)
 - [`line-break`](./line-break/)
+- [`max-height`](./max-height/)
 - [`text-decoration-line`](./text-decoration-line/)
 - [`transform`](./transform/)
 
