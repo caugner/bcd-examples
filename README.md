@@ -5,6 +5,7 @@ Examples to determine browser support in BrowserStack Live etc.
 ## Examples
 
 - [CSS](./css/)
+- [HTML](./html/)
 
 ## Development
 

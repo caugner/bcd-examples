@@ -1,0 +1,8 @@
+<a id="blob" href="" download="blob.txt">Download blob</a>
+<a href="data:,Hello%2C%20World%21" download="data.txt">Download data</a>
+<a href="./" download="dir.txt">Download dir</a>
+<a href="download.txt" download="file.txt">Download file</a>
+
+<script>
+document.getElementById('blob').href = URL.createObjectURL(new Blob());
+</script>
