@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
@@ -27,10 +27,15 @@
 
     <script>
       function toggleFullScreen() {
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
-        } else if (document.exitFullscreen) {
-          document.exitFullscreen();
+        const el = document.documentElement;
+        const requestFullscreen =
+          el.requestFullscreen || el.webkitRequestFullscreen;
+        const exitFullscreen =
+          document.exitFullscreen || document.webkitExitFullscreen;
+        if (!(document.fullscreenElement || document.webkitFullscreenElement)) {
+          requestFullscreen();
+        } else if (exitFullscreen) {
+          exitFullscreen();
         }
       }
     </script>
