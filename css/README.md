@@ -4,6 +4,7 @@
 - [`background-position`](./background-position/)
 - [`border-image-width`](./border-image-width/)
 - [`cursor`](./cursor/)
+- [`display-mode`](./display-mode/)
 - [`font-variant`](./font-variant/)
 - [`line-break`](./line-break/)
 - [`max-height`](./max-height/)
