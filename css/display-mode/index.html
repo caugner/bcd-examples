@@ -1,36 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fullscreen test</title>
+    <title>CSS display-mode</title>
 
     <style>
+      div {
+        display: none;
+      }
+      @media (display-mode) {
+        .display-mode-null {
+          display: inline;
+        }
+      }
+      @media (display-mode: browser) {
+        .display-mode-browser {
+          display: inline;
+        }
+      }
+      @media (display-mode: minimal-ui) {
+        .display-mode-minimal-ui {
+          display: inline;
+        }
+      }
+      @media (display-mode: standalone) {
+        .display-mode-standalone {
+          display: inline;
+        }
+      }
       @media (display-mode: fullscreen) {
-        body {
-          background: yellow;
+        .display-mode-fullscreen {
+          display: inline;
+        }
+      }
+      @media (display-mode: invalid-value) {
+        .display-mode-invalid-value {
+          display: inline;
         }
       }
     </style>
   </head>
   <body>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-    <br /><br />
+    <div class="display-mode-null">(display-mode)</div>
+    <div class="display-mode-browser">(display-mode: browser)</div>
+    <div class="display-mode-minimal-ui">(display-mode: minimal-ui)</div>
+    <div class="display-mode-standalone">(display-mode: standalone)</div>
+    <div class="display-mode-fullscreen">(display-mode: fullscreen)</div>
+    <div class="display-mode-invalid-value">(display-mode: invalid-value)</div>
 
     <button onclick="toggleFullScreen()">Fullscreen</button>
 
     <script>
       function toggleFullScreen() {
+        var el = document.documentElement;
+        if (!el) {
+          return;
+        }
         if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
+          if (el.requestFullscreen) {
+            el.requestFullscreen();
+          } else if (el.mozRequestFullScreen) {
+            el.mozRequestFullScreen();
+          }else if (el.webkitRequestFullScreen) {
+            el.webkitRequestFullScreen();
+          }
         } else if (document.exitFullscreen) {
           document.exitFullscreen();
+        } else if (document.mozExitFullscreen) {
+          document.mozExitFullscreen();
+        }else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
         }
       }
     </script>
