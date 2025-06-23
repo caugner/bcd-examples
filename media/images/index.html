@@ -1,0 +1,87 @@
+<!doctype html>
+<title>Image format test</title>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+  th,td {
+    padding: 4px;
+  }
+  img {
+    height: 8px;
+    width: 8px;
+  }
+  .loaded {
+    background-color: #ccffcc;
+  }
+  .error {
+    background-color: #ffcccc;
+  }
+</style>
+
+<script>
+/**
+ * @param {string} url
+ * @param {HTMLTableRowElement} row
+ */
+  function testImage(url, row) {
+    var img = new Image();
+    img.src = url;
+    img.onload = function () {
+        var cell = document.createElement("td");
+        cell.textContent = "loaded";
+        row.appendChild(cell);
+        row.className = "loaded";
+    };
+    img.onerror = function () {
+        var cell = document.createElement("td");
+        cell.textContent = "ERROR";
+        row.appendChild(cell);
+        row.className = "error";
+    };
+    var cell = document.createElement("td");
+    row.appendChild(cell);
+    cell.appendChild(img);
+  }
+</script>
+
+<body>
+  <h1>Image format test</h1>
+
+  <table id="table"></table>
+
+  <script>
+    var files = [
+      "animated.apng",
+      "animated.gif",
+      "animated.png",
+      "animated.webp",
+      "image.avif",
+      "image.bmp",
+      "image.cur",
+      "image.gif",
+      "image.heic",
+      "image.ico",
+      "image.jp2",
+      "image.jpg",
+      "image.jxl",
+      "image.jxr",
+      "image.pbm",
+      "image.png",
+      "image.svg",
+      "image.tiff",
+      "image.webp",
+      "image.xbm",
+    ];
+    var table = document.getElementById("table");
+    for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+      var row = document.createElement("tr");
+      var cell = document.createElement("td");
+      cell.textContent = file;
+      row.appendChild(cell);
+      table.appendChild(row);
+      testImage(file, row);
+    }
+  </script>
+</body>
