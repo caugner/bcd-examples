@@ -29,13 +29,13 @@
     img.src = url;
     img.onload = function () {
         var cell = document.createElement("td");
-        cell.textContent = "loaded";
+        cell.innerText = "loaded";
         row.appendChild(cell);
         row.className = "loaded";
     };
     img.onerror = function () {
         var cell = document.createElement("td");
-        cell.textContent = "ERROR";
+        cell.innerText = "ERROR";
         row.appendChild(cell);
         row.className = "error";
     };
@@ -78,7 +78,7 @@
     var file = files[i];
       var row = document.createElement("tr");
       var cell = document.createElement("td");
-      cell.textContent = file;
+      cell.innerText = file;
       row.appendChild(cell);
       table.appendChild(row);
       testImage(file, row);
