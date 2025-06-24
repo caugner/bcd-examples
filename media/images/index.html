@@ -48,6 +48,7 @@
 <body>
   <h1>Image format test</h1>
 
+  <pre><code id="navigator"></code></pre>
   <table id="table"></table>
 
   <script>
@@ -73,6 +74,7 @@
       "image.webp",
       "image.xbm",
     ];
+    document.getElementById("navigator").innerText = navigator.userAgent;
     var table = document.getElementById("table");
     for (var i = 0; i < files.length; i++) {
     var file = files[i];
