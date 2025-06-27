@@ -5,6 +5,9 @@
     border-collapse: collapse;
   }
   th,td {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
     padding: 4px;
   }
   img {
@@ -34,10 +37,11 @@
       el.appendChild(node);
     }
   }
-/**
- * @param {string} url
- * @param {HTMLTableRowElement} row
- */
+
+  /**
+   * @param {string} url
+   * @param {HTMLTableRowElement} row
+   */
   function testImage(url, row) {
     var img = new Image();
     img.src = url;
@@ -56,6 +60,16 @@
     var cell = document.createElement("td");
     row.appendChild(cell);
     cell.appendChild(img);
+  }
+
+  /**
+   * @param {string} url
+   * @param {HTMLTableRowElement} row
+   */
+  function testImageBackground(url, row) {
+    var cell = document.createElement("td");
+    cell.style.backgroundImage = "url('" + url + "')";
+    row.appendChild(cell);
   }
 </script>
 
@@ -95,6 +109,7 @@
       row.appendChild(cell);
       table.appendChild(row);
       testImage(file, row);
+      testImageBackground(file, row);
     }
   </script>
 </body>
