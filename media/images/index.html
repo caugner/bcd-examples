@@ -20,6 +20,20 @@
 </style>
 
 <script>
+  /**
+   * @param {HTMLElement|Node} el
+   * @param {string} text
+   */
+  function setText(el, text) {
+    if ('innerText' in el) {
+      el.innerText = text;
+    } else if ('textContent' in el) {
+      el.textContent = text;
+    } else {
+      var node = document.createTextNode(text);
+      el.appendChild(node);
+    }
+  }
 /**
  * @param {string} url
  * @param {HTMLTableRowElement} row
@@ -29,13 +43,13 @@
     img.src = url;
     img.onload = function () {
         var cell = document.createElement("td");
-        cell.innerText = "loaded";
+        setText(cell, "loaded");
         row.appendChild(cell);
         row.className = "loaded";
     };
     img.onerror = function () {
         var cell = document.createElement("td");
-        cell.innerText = "ERROR";
+        setText(cell, "ERROR");
         row.appendChild(cell);
         row.className = "error";
     };
@@ -71,13 +85,13 @@
       "image.webp",
       "image.xbm",
     ];
-    document.getElementById("navigator").innerText = navigator.userAgent;
+    setText(document.getElementById("navigator"), navigator.userAgent);
     var table = document.getElementById("table");
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
       var row = document.createElement("tr");
       var cell = document.createElement("td");
-      cell.innerText = file;
+      setText(cell, file);
       row.appendChild(cell);
       table.appendChild(row);
       testImage(file, row);
