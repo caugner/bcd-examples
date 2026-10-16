@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .horizontal-table {
+        writing-mode: horizontal-tb;
+        border-collapse: collapse;
+      }
+
+      .horizontal-table td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+
+      .orthogonal-cell {
+        writing-mode: vertical-rl;
+      }
+
+      .vertical-table {
+        writing-mode: vertical-rl;
+        border-collapse: collapse;
+      }
+
+      .vertical-table td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>writing-mode</code> on table cells</h2>
+    <p>
+      Test 1: In the horizontal table, the first cell should read top to bottom
+      (vertical), and the second cell should read left to right (horizontal).
+    </p>
+    <table class="horizontal-table">
+      <tr>
+        <td class="orthogonal-cell">Vertical cell</td>
+        <td>Horizontal cell</td>
+      </tr>
+    </table>
+
+    <p>
+      Test 2 (control): In the vertical table, both cells inherit
+      <code>vertical-rl</code> and should both read top to bottom.
+    </p>
+    <table class="vertical-table">
+      <tr>
+        <td>Inherited vertical cell</td>
+        <td>Inherited vertical cell</td>
+      </tr>
+    </table>
+  </body>
+</html>
