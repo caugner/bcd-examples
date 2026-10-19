@@ -8,6 +8,7 @@
 - [`font-variant`](./font-variant/)
 - [`line-break`](./line-break/)
 - [`max-height`](./max-height/)
+- [`starting-style`](./starting-style/)
 - [`text-decoration-line`](./text-decoration-line/)
 - [`transform`](./transform/)
 

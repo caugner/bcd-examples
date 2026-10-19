@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        margin: 1rem;
+        transition: opacity 1000s;
+      }
+
+      @starting-style {
+        .square {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>@starting-style</code> on load and on DOM insertion</h2>
+    <p>
+      Both purple squares start from <code>opacity: 0</code> and transition over
+      1000s, so each should look almost transparent. The square in the second
+      row is added to the DOM after load. If it is solid purple, styles from
+      <code>@starting-style</code> were not applied to elements inserted into
+      the DOM.
+    </p>
+    <div class="square" id="on-load"></div>
+    <div id="added"></div>
+    <button class="add-square">Add square</button>
+    <script>
+      window.addSquare = function () {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        document.getElementById("added").appendChild(square);
+      };
+      document
+        .querySelector(".add-square")
+        .addEventListener("click", window.addSquare);
+    </script>
+  </body>
+</html>
