@@ -92,6 +92,14 @@
     </p>
     <div id="rows"></div>
     <script>
+      window.onerror = function (message, source, line) {
+        var out = document.createElement("pre");
+        var text = "Script error: " + message + " (line " + line + ")";
+        out.appendChild(document.createTextNode(text));
+        document.body.appendChild(out);
+        window.__error = text;
+      };
+
       // L, R, C are the item's left offset inside the box: 0, 260 and 130.
       var L = 0;
       var R = 260;
@@ -277,11 +285,9 @@
         var summary = [];
         for (var i = 0; i < measured.length; i++) {
           var m = measured[i];
-          var actual = Math.round(
-            m.item.getBoundingClientRect().left -
-              m.box.getBoundingClientRect().left -
-              1,
-          );
+          var boxLeft = m.box.getBoundingClientRect().left;
+          var itemLeft = m.item.getBoundingClientRect().left;
+          var actual = Math.round(itemLeft - boxLeft - 1);
           var expected = m.ctx.expected[m.key];
           var text;
           if (Math.abs(actual - expected) > 1) {
@@ -295,9 +301,8 @@
             m.verdict.className = "verdict pass";
           }
           m.verdict.appendChild(document.createTextNode(text));
-          summary.push(
-            m.ctx.name + " | " + m.ctx.prop + ": " + m.key + " | " + text,
-          );
+          var label = m.ctx.name + " | " + m.ctx.prop + ": " + m.key;
+          summary.push(label + " | " + text);
         }
         window.__results = summary;
       }
