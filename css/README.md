@@ -6,6 +6,7 @@
 - [`cursor`](./cursor/)
 - [`display-mode`](./display-mode/)
 - [`font-variant`](./font-variant/)
+- [`justify-position-keywords`](./justify-position-keywords/)
 - [`line-break`](./line-break/)
 - [`max-height`](./max-height/)
 - [`starting-style`](./starting-style/)
