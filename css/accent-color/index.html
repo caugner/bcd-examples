@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>accent-color checkmark contrast</title>
+  </head>
+  <body>
+    <h2>accent-color checkmark contrast</h2>
+    <p>
+      The accent color comes from the <code>accent</code> query parameter
+      (a hex color such as <code>#ffe000</code>). With a light accent, the
+      checked checkbox and the indeterminate checkbox should show a dark
+      checkmark or dash on the accent. The checkmark should not be white on
+      light yellow.
+    </p>
+    <p>
+      <label><input id="checked" type="checkbox" checked /> checked</label>
+      <label><input id="indeterminate" type="checkbox" /> indeterminate</label>
+    </p>
+    <script>
+      const accent = new URLSearchParams(location.search).get("accent");
+      if (accent) {
+        for (const id of ["checked", "indeterminate"]) {
+          document.getElementById(id).style.accentColor = accent;
+        }
+      }
+      document.getElementById("indeterminate").indeterminate = true;
+    </script>
+  </body>
+</html>
