@@ -93,16 +93,46 @@
         font-display: block;
       }
 
+      @font-face {
+        font-family: "Inter 0 to 14";
+        src:
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2 supports variations"),
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2-variations");
+        font-weight: 1 999;
+        font-stretch: 75% 100%;
+        font-style: oblique 0deg 14deg;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter 0 to 19";
+        src:
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2 supports variations"),
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2-variations");
+        font-weight: 1 999;
+        font-stretch: 75% 100%;
+        font-style: oblique 0deg 19deg;
+        font-display: block;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
       p {
-        margin: 6px 0;
+        margin: 2px 0;
       }
 
       .sample {
         /* A monospace fallback makes a failed font load obvious. */
         font:
-          400 24px/1.2 Inter,
+          400 20px/1.2 Inter,
           monospace;
-        margin: 0 0 8px;
+        margin: 0 0 6px;
       }
 
       .sample span {
@@ -135,6 +165,14 @@
 
       .face-stretch-only {
         font-family: "Inter stretch only", monospace;
+      }
+
+      .face-0-14 {
+        font-family: "Inter 0 to 14", monospace;
+      }
+
+      .face-0-19 {
+        font-family: "Inter 0 to 19", monospace;
       }
 
       .normal {
@@ -188,7 +226,7 @@
     <p class="sample oblique-10deg">HILL lift 5 oblique 10deg</p>
 
     <p>
-      Tests 6 to 12 change the <code>font-style</code> descriptor of the font
+      Tests 6 to 14 change the <code>font-style</code> descriptor of the font
       face. In each, the first sample should be upright and the other two
       slanted.
     </p>
@@ -249,6 +287,26 @@
       <span class="normal">HILL 12 normal</span>
       <span class="italic">HILL 12 italic</span>
       <span class="oblique-10deg">HILL 12 oblique 10deg</span>
+    </p>
+
+    <p>
+      Test 13: face of tests 1 to 5, but with
+      <code>font-style: oblique 0deg 14deg</code>.
+    </p>
+    <p class="sample face-0-14">
+      <span class="normal">HILL 13 normal</span>
+      <span class="italic">HILL 13 italic</span>
+      <span class="oblique-10deg">HILL 13 oblique 10deg</span>
+    </p>
+
+    <p>
+      Test 14: face of tests 1 to 5, but with
+      <code>font-style: oblique 0deg 19deg</code>.
+    </p>
+    <p class="sample face-0-19">
+      <span class="normal">HILL 14 normal</span>
+      <span class="italic">HILL 14 italic</span>
+      <span class="oblique-10deg">HILL 14 oblique 10deg</span>
     </p>
   </body>
 </html>
