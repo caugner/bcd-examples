@@ -23,12 +23,71 @@
         font-display: block;
       }
 
+      @font-face {
+        font-family: "Inter 0 to 10";
+        src: url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+          format("woff2");
+        font-weight: 1 999;
+        font-style: oblique 0deg 10deg;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter -10 to 0";
+        src: url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+          format("woff2");
+        font-weight: 1 999;
+        font-style: oblique -10deg 0deg;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter no style";
+        src: url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+          format("woff2");
+        font-weight: 1 999;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter italic";
+        src: url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+          format("woff2");
+        font-weight: 1 999;
+        font-style: italic;
+        font-display: block;
+      }
+
+      p {
+        margin: 6px 0;
+      }
+
       .sample {
         /* A monospace fallback makes a failed font load obvious. */
         font:
-          400 40px/1.2 Inter,
+          400 28px/1.2 Inter,
           monospace;
-        margin: 0 0 12px;
+        margin: 0 0 8px;
+      }
+
+      .sample span {
+        margin-right: 1em;
+      }
+
+      .face-0-10 {
+        font-family: "Inter 0 to 10", monospace;
+      }
+
+      .face-minus-10-0 {
+        font-family: "Inter -10 to 0", monospace;
+      }
+
+      .face-no-style {
+        font-family: "Inter no style", monospace;
+      }
+
+      .face-italic {
+        font-family: "Inter italic", monospace;
       }
 
       .normal {
@@ -58,8 +117,9 @@
       <code>slnt</code> axis
     </h2>
     <p>
-      All samples should render in Inter (sans-serif, not monospace). The font
-      face is declared with <code>font-style: oblique 0deg 20deg</code>.
+      All samples should render in Inter (sans-serif, not monospace). In tests 1
+      to 5, the font face is declared with
+      <code>font-style: oblique 0deg 20deg</code>.
     </p>
 
     <p>Test 1 (control): <code>font-style: normal</code> should be upright.</p>
@@ -79,5 +139,39 @@
 
     <p>Test 5: <code>font-style: oblique 10deg</code> should be slanted.</p>
     <p class="sample oblique-10deg">HILL lift 5 oblique 10deg</p>
+
+    <p>
+      Tests 6 to 9 change the <code>font-style</code> descriptor of the font
+      face. In each, the first sample should be upright and the other two
+      slanted.
+    </p>
+
+    <p>Test 6: face with <code>font-style: oblique 0deg 10deg</code>.</p>
+    <p class="sample face-0-10">
+      <span class="normal">HILL 6 normal</span>
+      <span class="italic">HILL 6 italic</span>
+      <span class="oblique-10deg">HILL 6 oblique 10deg</span>
+    </p>
+
+    <p>Test 7: face with <code>font-style: oblique -10deg 0deg</code>.</p>
+    <p class="sample face-minus-10-0">
+      <span class="normal">HILL 7 normal</span>
+      <span class="italic">HILL 7 italic</span>
+      <span class="oblique-10deg">HILL 7 oblique 10deg</span>
+    </p>
+
+    <p>Test 8: face without a <code>font-style</code> descriptor.</p>
+    <p class="sample face-no-style">
+      <span class="normal">HILL 8 normal</span>
+      <span class="italic">HILL 8 italic</span>
+      <span class="oblique-10deg">HILL 8 oblique 10deg</span>
+    </p>
+
+    <p>Test 9: face with <code>font-style: italic</code>.</p>
+    <p class="sample face-italic">
+      <span class="normal">HILL 9 normal</span>
+      <span class="italic">HILL 9 italic</span>
+      <span class="oblique-10deg">HILL 9 oblique 10deg</span>
+    </p>
   </body>
 </html>
