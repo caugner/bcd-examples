@@ -58,6 +58,41 @@
         font-display: block;
       }
 
+      @font-face {
+        font-family: "Inter range only";
+        src:
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2 supports variations"),
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2-variations");
+        font-weight: 1 999;
+        font-stretch: 75% 100%;
+        font-style: oblique 0deg 10deg;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter format only";
+        src: url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+          format("woff2");
+        font-weight: 1 999;
+        font-stretch: 75% 100%;
+        font-style: oblique 0deg 20deg;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Inter stretch only";
+        src:
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2 supports variations"),
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2-variations");
+        font-weight: 1 999;
+        font-style: oblique 0deg 20deg;
+        font-display: block;
+      }
+
       p {
         margin: 6px 0;
       }
@@ -65,7 +100,7 @@
       .sample {
         /* A monospace fallback makes a failed font load obvious. */
         font:
-          400 28px/1.2 Inter,
+          400 24px/1.2 Inter,
           monospace;
         margin: 0 0 8px;
       }
@@ -88,6 +123,18 @@
 
       .face-italic {
         font-family: "Inter italic", monospace;
+      }
+
+      .face-range-only {
+        font-family: "Inter range only", monospace;
+      }
+
+      .face-format-only {
+        font-family: "Inter format only", monospace;
+      }
+
+      .face-stretch-only {
+        font-family: "Inter stretch only", monospace;
       }
 
       .normal {
@@ -141,7 +188,7 @@
     <p class="sample oblique-10deg">HILL lift 5 oblique 10deg</p>
 
     <p>
-      Tests 6 to 9 change the <code>font-style</code> descriptor of the font
+      Tests 6 to 12 change the <code>font-style</code> descriptor of the font
       face. In each, the first sample should be upright and the other two
       slanted.
     </p>
@@ -172,6 +219,36 @@
       <span class="normal">HILL 9 normal</span>
       <span class="italic">HILL 9 italic</span>
       <span class="oblique-10deg">HILL 9 oblique 10deg</span>
+    </p>
+
+    <p>
+      Test 10: face of tests 1 to 5, but with
+      <code>font-style: oblique 0deg 10deg</code>.
+    </p>
+    <p class="sample face-range-only">
+      <span class="normal">HILL 10 normal</span>
+      <span class="italic">HILL 10 italic</span>
+      <span class="oblique-10deg">HILL 10 oblique 10deg</span>
+    </p>
+
+    <p>
+      Test 11: face of tests 1 to 5, but with a plain
+      <code>format("woff2")</code> source.
+    </p>
+    <p class="sample face-format-only">
+      <span class="normal">HILL 11 normal</span>
+      <span class="italic">HILL 11 italic</span>
+      <span class="oblique-10deg">HILL 11 oblique 10deg</span>
+    </p>
+
+    <p>
+      Test 12: face of tests 1 to 5, but without a
+      <code>font-stretch</code> descriptor.
+    </p>
+    <p class="sample face-stretch-only">
+      <span class="normal">HILL 12 normal</span>
+      <span class="italic">HILL 12 italic</span>
+      <span class="oblique-10deg">HILL 12 oblique 10deg</span>
     </p>
   </body>
 </html>
