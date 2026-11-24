@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="preload"
+      href="https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      /* Inter has a slnt axis (-10 to 0) but no ital axis. */
+      @font-face {
+        font-family: "Inter";
+        src:
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2 supports variations"),
+          url("https://developer.mozilla.org/shared-assets/fonts/Inter.var.woff2")
+            format("woff2-variations");
+        font-weight: 1 999;
+        font-stretch: 75% 100%;
+        font-style: oblique 0deg 20deg;
+        font-display: block;
+      }
+
+      .sample {
+        /* A monospace fallback makes a failed font load obvious. */
+        font:
+          400 40px/1.2 Inter,
+          monospace;
+        margin: 0 0 12px;
+      }
+
+      .normal {
+        font-style: normal;
+      }
+
+      .slnt {
+        font-variation-settings: "slnt" -10;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .oblique {
+        font-style: oblique;
+      }
+
+      .oblique-10deg {
+        font-style: oblique 10deg;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      <code>font-style</code> with a variable font that has a
+      <code>slnt</code> axis
+    </h2>
+    <p>
+      All samples should render in Inter (sans-serif, not monospace). The font
+      face is declared with <code>font-style: oblique 0deg 20deg</code>.
+    </p>
+
+    <p>Test 1 (control): <code>font-style: normal</code> should be upright.</p>
+    <p class="sample normal">HILL lift 1 normal</p>
+
+    <p>
+      Test 2 (control): <code>font-variation-settings: "slnt" -10</code> should
+      be slanted.
+    </p>
+    <p class="sample slnt">HILL lift 2 slnt -10</p>
+
+    <p>Test 3: <code>font-style: italic</code> should be slanted.</p>
+    <p class="sample italic">HILL lift 3 italic</p>
+
+    <p>Test 4: <code>font-style: oblique</code> should be slanted.</p>
+    <p class="sample oblique">HILL lift 4 oblique</p>
+
+    <p>Test 5: <code>font-style: oblique 10deg</code> should be slanted.</p>
+    <p class="sample oblique-10deg">HILL lift 5 oblique 10deg</p>
+  </body>
+</html>

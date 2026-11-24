@@ -6,6 +6,7 @@
 - [`border-image-width`](./border-image-width/)
 - [`cursor`](./cursor/)
 - [`display-mode`](./display-mode/)
+- [`font-style`](./font-style/)
 - [`font-variant`](./font-variant/)
 - [`justify-position-keywords`](./justify-position-keywords/)
 - [`line-break`](./line-break/)
