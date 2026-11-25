@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Share target received</title>
+  </head>
+  <body>
+    <h1>Share received</h1>
+    <pre id="out"></pre>
+    <script>
+      out.textContent = JSON.stringify(
+        Object.fromEntries(new URLSearchParams(location.search)),
+        null,
+        2,
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Share target test</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body>
+    <h1>Web Share Target test</h1>
+    <ol>
+      <li>Install this page as an app (address bar install icon, or menu &gt; Cast, save and share &gt; Install page as app).</li>
+      <li>Open the OS share UI from another app or file (Windows: Share in File Explorer; macOS: Share menu in Safari/Finder).</li>
+      <li>Check whether "Share target test" is listed as a target.</li>
+    </ol>
+    <p id="manifest-info"></p>
+    <p><button id="share">navigator.share() (sending side, for comparison)</button> <span id="result"></span></p>
+    <script>
+      document.getElementById("manifest-info").textContent =
+        "display-mode standalone: " +
+        matchMedia("(display-mode: standalone)").matches;
+      document.getElementById("share").onclick = async () => {
+        try {
+          await navigator.share({ title: "t", text: "x", url: location.href });
+          result.textContent = "share() resolved";
+        } catch (e) {
+          result.textContent = "share() failed: " + e.name;
+        }
+      };
+    </script>
+  </body>
+</html>
