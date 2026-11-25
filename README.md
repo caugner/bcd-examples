@@ -4,6 +4,7 @@ Examples to determine browser support in BrowserStack Live etc.
 
 ## Examples
 
+- [API](./api/)
 - [CSS](./css/)
 - [HTML](./html/)
 - [Media](./media/)

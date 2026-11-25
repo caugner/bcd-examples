@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      pre {
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>SpeechSynthesisUtterance</code> <code>boundary</code> event</h2>
+    <p>
+      Test 1: The result should read <code>PASS</code> if at least one
+      <code>boundary</code> event fired while speaking, <code>FAIL</code> if
+      the utterance ended without one, and <code>NO-RESULT</code> if speech
+      could not run (no voices, or <code>error</code> event).
+    </p>
+    <p>Result: <strong id="result">PENDING</strong></p>
+    <pre id="log"></pre>
+    <script>
+      var logEl = document.getElementById("log");
+      var resultEl = document.getElementById("result");
+      var boundaries = 0;
+      var done = false;
+
+      function log(msg) {
+        logEl.appendChild(document.createTextNode(msg + "\n"));
+      }
+
+      function finish(result) {
+        if (done) return;
+        done = true;
+        resultEl.textContent = result;
+      }
+
+      function run() {
+        var synth = window.speechSynthesis;
+        if (!synth || typeof SpeechSynthesisUtterance === "undefined") {
+          log("speechSynthesis unavailable");
+          finish("NO-RESULT");
+          return;
+        }
+        log("voices: " + synth.getVoices().length);
+        log("onboundary in prototype: " + ("onboundary" in SpeechSynthesisUtterance.prototype));
+        var u = new SpeechSynthesisUtterance("One two three four five six.");
+        u.onstart = function () {
+          log("start");
+        };
+        u.onboundary = function (e) {
+          boundaries++;
+          log("boundary " + e.name + " charIndex=" + e.charIndex);
+        };
+        u.onend = function () {
+          log("end, boundaries=" + boundaries);
+          finish(boundaries > 0 ? "PASS" : "FAIL");
+        };
+        u.onerror = function (e) {
+          log("error " + e.error);
+          finish("NO-RESULT");
+        };
+        synth.speak(u);
+        setTimeout(function () {
+          log("timeout, boundaries=" + boundaries);
+          finish(boundaries > 0 ? "PASS" : "NO-RESULT");
+        }, 15000);
+      }
+
+      // Voices load asynchronously in some browsers
+      setTimeout(run, 1000);
+    </script>
+  </body>
+</html>
