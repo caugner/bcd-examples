@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h2>Attribution Reporting API stubs</h2>
+    <p>
+      Each line reads <code>present</code> if the stub exists and
+      <code>absent</code> if it does not. The control must always read
+      <code>present</code>.
+    </p>
+    <pre id="results">Running...</pre>
+    <script>
+      const results = [
+        [
+          "Control: XMLHttpRequest.prototype.setRequestHeader",
+          "setRequestHeader" in XMLHttpRequest.prototype,
+        ],
+        [
+          "XMLHttpRequest.prototype.setAttributionReporting",
+          "setAttributionReporting" in XMLHttpRequest.prototype,
+        ],
+        [
+          "HTMLAnchorElement.prototype.attributionSrc",
+          "attributionSrc" in HTMLAnchorElement.prototype,
+        ],
+        [
+          "HTMLAreaElement.prototype.attributionSrc",
+          "attributionSrc" in HTMLAreaElement.prototype,
+        ],
+        [
+          "HTMLImageElement.prototype.attributionSrc",
+          "attributionSrc" in HTMLImageElement.prototype,
+        ],
+        [
+          "HTMLScriptElement.prototype.attributionSrc",
+          "attributionSrc" in HTMLScriptElement.prototype,
+        ],
+      ];
+
+      document.getElementById("results").textContent =
+        navigator.userAgent.match(/Chrome\/\S+/)?.[0] +
+        "\n\n" +
+        results
+          .map(
+            ([name, present]) => `${present ? "present" : "absent "}  ${name}`
+          )
+          .join("\n");
+    </script>
+  </body>
+</html>
