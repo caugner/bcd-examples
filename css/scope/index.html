@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .box {
+        width: 200px;
+        height: 40px;
+        margin: 0.5rem;
+        background-color: gray;
+      }
+
+      @scope (.scope-root) {
+        .box {
+          background-color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>@scope</code> on slotted elements</h2>
+    <p>
+      Each box is styled by <code>@scope (.scope-root) { .box { ... } }</code>
+      and should be green. If a box is gray, the rule was not applied.
+    </p>
+    <p>1. Control, no shadow DOM (should be green):</p>
+    <div class="scope-root"><div class="box"></div></div>
+    <p>
+      2. Box slotted into a shadow host, with the scope root outside the host
+      (should be green):
+    </p>
+    <div class="scope-root">
+      <div id="host"><div class="box" slot="content"></div></div>
+    </div>
+    <script>
+      const host = document.getElementById("host");
+      host.attachShadow({ mode: "open" }).innerHTML =
+        '<slot name="content"></slot>';
+    </script>
+  </body>
+</html>

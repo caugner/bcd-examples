@@ -11,6 +11,7 @@
 - [`justify-position-keywords`](./justify-position-keywords/)
 - [`line-break`](./line-break/)
 - [`max-height`](./max-height/)
+- [`scope`](./scope/)
 - [`starting-style`](./starting-style/)
 - [`text-decoration-line`](./text-decoration-line/)
 - [`transform`](./transform/)
