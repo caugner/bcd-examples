@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <style>
+      pre {
+        white-space: pre-wrap;
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>Notification</code> properties in a home screen web app</h2>
+    <p>
+      On iOS, <code>Notification</code> only exists in a web app added to the
+      Home Screen. Add this page to the Home Screen, open it from there, and tap
+      the buttons in order.
+    </p>
+    <p>
+      Expected: step 1 lists <code>title</code>, <code>lang</code>,
+      <code>silent</code>, <code>body</code> and <code>dir</code> as
+      <code>true</code> where supported. Step 3 shows the values passed to
+      <code>showNotification()</code>: <code>title: "Title"</code>,
+      <code>lang: "de"</code>, <code>silent: true</code>.
+    </p>
+    <p>
+      <button id="check">1. Check prototype</button>
+      <button id="permission">2. Request permission</button>
+      <button id="show">3. Show and read back</button>
+    </p>
+    <pre id="out">Not run yet.</pre>
+    <script>
+      var out = document.getElementById("out");
+      function log(text) {
+        out.textContent += "\n" + text;
+      }
+      function reset() {
+        out.textContent = navigator.userAgent;
+      }
+
+      document.getElementById("check").onclick = function () {
+        reset();
+        log("typeof Notification: " + typeof Notification);
+        if (typeof Notification === "undefined") {
+          return;
+        }
+        var names = ["title", "lang", "silent", "body", "dir", "tag", "data"];
+        for (var i = 0; i < names.length; i++) {
+          log(
+            names[i] + " in prototype: " + (names[i] in Notification.prototype)
+          );
+        }
+      };
+
+      document.getElementById("permission").onclick = function () {
+        reset();
+        if (typeof Notification === "undefined") {
+          log("Notification is undefined");
+          return;
+        }
+        Notification.requestPermission().then(function (result) {
+          log("permission: " + result);
+        });
+      };
+
+      document.getElementById("show").onclick = function () {
+        reset();
+        var registration;
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(function () {
+            return navigator.serviceWorker.ready;
+          })
+          .then(function (reg) {
+            registration = reg;
+            return registration.showNotification("Title", {
+              lang: "de",
+              silent: true,
+              body: "Body",
+              tag: "bcd",
+            });
+          })
+          .then(function () {
+            return registration.getNotifications();
+          })
+          .then(function (list) {
+            log("notifications: " + list.length);
+            for (var i = 0; i < list.length; i++) {
+              var n = list[i];
+              log(
+                JSON.stringify({
+                  title: n.title,
+                  lang: n.lang,
+                  silent: n.silent,
+                  body: n.body,
+                  dir: n.dir,
+                })
+              );
+            }
+          })
+          .catch(function (error) {
+            log("Error: " + error);
+          });
+      };
+    </script>
+  </body>
+</html>

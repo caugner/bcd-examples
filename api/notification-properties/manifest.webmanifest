@@ -1,0 +1,7 @@
+{
+  "name": "Notification properties",
+  "short_name": "Notif props",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone"
+}
