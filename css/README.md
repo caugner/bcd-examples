@@ -5,6 +5,7 @@
 - [`background-position`](./background-position/)
 - [`border-image-width`](./border-image-width/)
 - [`cursor`](./cursor/)
+- [`display-list-item`](./display-list-item/)
 - [`display-mode`](./display-mode/)
 - [`font-style`](./font-style/)
 - [`font-variant`](./font-variant/)

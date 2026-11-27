@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      td {
+        padding: 0.25rem 0.75rem;
+        border: 1px solid silver;
+        font-family: monospace;
+      }
+
+      .pass {
+        background: #cfc;
+      }
+
+      .fail {
+        background: #fcc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><code>display</code> with <code>&lt;display-listitem&gt;</code></h2>
+    <p>
+      Each row sets <code>display</code> on a <code>div</code>. A row passes
+      (green) if the value is parsed, that is, if the computed
+      <code>display</code> is not the initial <code>block</code> and
+      <code>CSS.supports()</code> returns <code>true</code>. The first row is a
+      control that should always pass.
+    </p>
+    <table id="results">
+      <tr>
+        <td>value</td>
+        <td>CSS.supports</td>
+        <td>computed display</td>
+        <td>result</td>
+      </tr>
+    </table>
+    <script>
+      var values = [
+        "list-item",
+        "inline list-item",
+        "block list-item",
+        "flow list-item",
+        "flow-root list-item",
+        "block flow list-item",
+        "block flow-root list-item",
+        "inline flow list-item",
+        "inline flow-root list-item",
+        "list-item inline",
+      ];
+      var table = document.getElementById("results");
+      for (var i = 0; i < values.length; i++) {
+        var el = document.createElement("div");
+        el.style.display = "";
+        el.style.display = values[i];
+        document.body.appendChild(el);
+        var computed = window.getComputedStyle(el).display;
+        document.body.removeChild(el);
+        var supported = CSS.supports("display", values[i]);
+        var parsed = el.style.display !== "";
+        var row = table.insertRow(-1);
+        row.insertCell(-1).textContent = values[i];
+        row.insertCell(-1).textContent = String(supported);
+        row.insertCell(-1).textContent = computed;
+        var result = row.insertCell(-1);
+        var pass = supported && parsed;
+        result.textContent = pass ? "pass" : "fail";
+        result.className = pass ? "pass" : "fail";
+      }
+    </script>
+  </body>
+</html>
