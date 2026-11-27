@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      svg {
+        display: inline-block;
+        margin: 0.25rem;
+        outline: 1px solid silver;
+      }
+
+      text {
+        font: 40px sans-serif;
+      }
+
+      .css-text-top {
+        dominant-baseline: text-top;
+      }
+
+      .css-text-bottom {
+        dominant-baseline: text-bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      <code>dominant-baseline</code> <code>text-top</code> and
+      <code>text-bottom</code>
+    </h2>
+    <p>
+      Each box has a red line at y=50. In the first box (no
+      <code>dominant-baseline</code>), the text sits on the line. If a box is
+      supported, the text moves relative to the line, as described below. If it
+      looks the same as the first box, the value is ignored.
+    </p>
+
+    <p>
+      <strong>text-top</strong>: the top of the text should touch the red line,
+      so the text should hang below it.
+    </p>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50">Hxg</text>
+    </svg>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50" dominant-baseline="text-top">Hxg</text>
+    </svg>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50" class="css-text-top">Hxg</text>
+    </svg>
+    <p>
+      Above: no value (reference),
+      <code>dominant-baseline="text-top"</code> attribute,
+      <code>dominant-baseline: text-top</code> CSS property.
+    </p>
+
+    <p>
+      <strong>text-bottom</strong>: the bottom of the text, including the
+      descender of "g", should touch the red line, so the letters "Hx" should
+      sit slightly above the line.
+    </p>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50">Hxg</text>
+    </svg>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50" dominant-baseline="text-bottom">Hxg</text>
+    </svg>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50" class="css-text-bottom">Hxg</text>
+    </svg>
+    <p>
+      Above: no value (reference),
+      <code>dominant-baseline="text-bottom"</code> attribute,
+      <code>dominant-baseline: text-bottom</code> CSS property.
+    </p>
+
+    <p>
+      <strong>Control</strong>: <code>dominant-baseline="middle"</code> is
+      supported everywhere, so the text should be centered on the line.
+    </p>
+    <svg width="160" height="100">
+      <path d="M0 50h160" stroke="red" />
+      <text x="10" y="50" dominant-baseline="middle">Hxg</text>
+    </svg>
+  </body>
+</html>
